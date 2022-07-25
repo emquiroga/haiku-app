@@ -11,9 +11,9 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
       <Text style={styles.title}>Create your Haiku</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <View style={styles.verseWrapper}>
-        <VerseBox flag={7}/>
         <VerseBox flag={5}/>
         <VerseBox flag={7}/>
+        <VerseBox flag={5}/>
       </View>
     </View>
   );
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   verseWrapper: {
+    width: "100%",
     flex: 1,
     alignItems: "center",
     justifyContent: "space-around",

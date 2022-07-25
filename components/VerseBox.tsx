@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { StyleSheet, NativeSyntheticEvent, TextInput, TextInputChangeEventData, Button } from "react-native"
 import lengthInfo from "../helpers/lengthInfo"
 import { divide } from "../tools/jsESsyllable"
@@ -18,7 +18,9 @@ export const VerseBox = ({flag}: IVerseBox) => {
     value.length && setDivided(divide(value))
   },[]);
 
-  console.log(lengthInfo(divided?.length ?? 0, flag))
+  useEffect(() => {
+    !verse.length && setDivided(null);
+  }, [verse])
 
   return (
     <View style={styles.boxWrapper}>
@@ -41,7 +43,7 @@ export const VerseBox = ({flag}: IVerseBox) => {
 
 const styles = StyleSheet.create({
     boxWrapper: {
-        width: "80%",
+        width: "90%",
         maxWidth: "600px",
         display: "flex",
         flexDirection: "column",
